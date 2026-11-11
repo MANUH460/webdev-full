@@ -1,0 +1,115 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: cyan; 
+            margin: 0;
+            color: gold;
+        }
+
+        header {
+            background-color: burlywood;
+            color:purple;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #222;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: orange;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #123456;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #123456;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            background-color: #123456;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2874a6;
+        }
+
+        footer {
+            background-color: #123456;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            table {
+                font-size: 11px;
+            }
+        }

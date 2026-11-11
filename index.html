@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University Student Information Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style> </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Kirinyanga univesity</h1>
+        <h2>Student Information Portal</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#registration">Student Registration</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        
+        <section id="home">
+            <h2>Welcome to Our University</h2>
+            <p>Welcome to the University Student Information Portal.</p>
+        </section>
+
+        <section id="about">
+
+            <h2>About Student Information Portal</h2>
+
+            <p>
+                The Student Information Portal is a web-based system
+                designed to manage student information, academic
+                programmes and student registration records.
+            </p>
+
+            <h3>Academic Programmes Offered</h3>
+
+            <ul>
+                <li>Bachelor of Computer Science</li>
+                <li>Bachelor of Information Technology</li>
+                <li>Bachelor of Business Administration</li>
+                <li>Bachelor of Education</li>
+            </ul>
+
+            <h3>Student Information Table</h3>
+
+            <table>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Registration Number</th>
+                    <th>Programme</th>
+                    <th>Year of Study</th>
+                </tr>
+
+                <tr>
+                    <td>001</td>
+                    <td>Mary Atieno</td>
+                    <td>CS/001/2026</td>
+                    <td>Computer Science</td>
+                    <td>Year 1</td>
+                </tr>
+
+                <tr>
+                    <td>002</td>
+                    <td>John mark</td>
+                    <td>IT/002/2026</td>
+                    <td>Information Technology</td>
+                    <td>Year 2</td>
+                </tr>
+
+                <tr>
+                    <td>003</td>
+                    <td>Peter Otieno</td>
+                    <td>BA/003/2026</td>
+                    <td>Business Administration</td>
+                    <td>Year 3</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="registration">
+
+            <h2>Student Registration Form</h2>
+
+            <form id="studentForm">
+
+                <label>Full Name:</label>
+                <input type="text" id="fullName"
+                       placeholder="Enter full name" required>
+
+                <label>Registration Number:</label>
+                <input type="text" id="regNumber"
+                       placeholder="Enter registration number" required>
+
+                <label>Email Address:</label>
+                <input type="email" id="email"
+                       placeholder="Enter email address" required>
+
+                <p>Gender:</p>
+
+                <label>
+                    <input type="radio" name="gender"
+                           value="Male" required>
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender"
+                           value="Female">
+                    Female
+                </label>
+
+                <label>Academic Programme:</label>
+
+                <select id="programme" required>
+                    <option value="">Select Programme</option>
+                    <option>Computer Science</option>
+                    <option>Information Technology</option>
+                    <option>Business Administration</option>
+                    <option>Education</option>
+                </select>
+
+                <button type="submit">Submit</button>
+
+                <button type="reset">Reset</button>
+
+            </form>
+
+            <div id="studentDetails"></div>
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@university.ac.ke</p>
+            <p>Phone: 0700000000</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 University Student Information Portal</p>
+    </footer>
+
+    <script>
+
+        let studentName = "Mary Wanjiku";
+        let registrationNumber = "CS/001/2026";
+        let academicProgramme = "Computer Science";
+
+        console.log(studentName);
+        console.log(registrationNumber);
+        console.log(academicProgramme);
+
+        function calculateGrade(score) {
+
+            if (score >= 70 && score <= 100) {
+                return "A";
+            }
+            else if (score >= 60) {
+                return "B";
+            }
+            else if (score >= 50) {
+                return "C";
+            }
+            else if (score >= 40) {
+                return "D";
+            }
+            else if (score >= 0) {
+                return "E";
+            }
+            else {
+                return "Invalid Score";
+            }
+        }
+
+        let grade = calculateGrade(75);
+
+        alert("Student Grade: " + grade);
+
+        const studentForm = document.getElementById("studentForm");
+
+        const studentDetails = document.getElementById("studentDetails");
+
+        studentForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("fullName").value.trim();
+
+            let regNo = document.getElementById("regNumber").value.trim();
+
+            let email = document.getElementById("email").value.trim();
+
+            let programme = document.getElementById("programme").value;
+
+            if (name === "" || regNo === "") {
+
+                alert("Please fill in your full name and registration number.");
+
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+
+                alert("Please enter a valid email address.");
+
+                return;
+            }
+
+            studentDetails.innerHTML = `
+                <h3>Registered Student Information</h3>
+                <p>Student Name: ${name}</p>
+                <p>Registration Number: ${regNo}</p>
+                <p>Email: ${email}</p>
+                <p>Programme: ${programme}</p>
+            `;
+
+            alert("Student Registration Successful!");
+
+        });
+
+    </script>
+
+</body>
+</html>
